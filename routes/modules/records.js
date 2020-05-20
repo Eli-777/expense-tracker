@@ -14,4 +14,15 @@ router.post('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
+//新增修改頁面
+router.get('/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Record.findById(id) 
+    .lean() 
+    .then((record) => res.render('edit', { record })) 
+    .catch(error => console.log(error))
+})
+
+
+
 module.exports = router

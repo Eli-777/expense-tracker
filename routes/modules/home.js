@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
   Record.find()
     .lean()
     .then(
+      //資料庫裡的每個項目的金額全部加總，帶入參數totalAmount
       Record.aggregate([
         { $group: { _id: null, amount: { $sum: "$amount" } } }
       ])
