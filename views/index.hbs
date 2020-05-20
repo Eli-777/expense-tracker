@@ -1,51 +1,55 @@
 <div class="container mt-5">
   <div class="row">
     <div class="form-group col-4 m-auto">
-      <form action="/filter" method="post">
-        <select class="form-control" onchange="location = this.value;">
-          <option value="/"selected>類別</option>
-          <option {{#categoryImg id '01'}} selected {{/categoryImg}} value="/records/01/filter">家居物業</option>
-          <option {{#categoryImg id '02'}} selected {{/categoryImg}} value="/records/02/filter">交通出行</option>
-          <option {{#categoryImg id '03'}} selected {{/categoryImg}} value="/records/03/filter">休閒娛樂</option>
-          <option {{#categoryImg id '04'}} selected {{/categoryImg}} value="/records/04/filter">餐飲食品</option>
-          <option {{#categoryImg id '05'}} selected {{/categoryImg}} value="/records/05/filter">其他</option>
-        </select>
-      </form>
+      <select class="form-control" onchange="location = this.value;">
+        <option value="/" selected>類別</option>
+        <option {{#categoryImg id '01'}} selected {{/categoryImg}} value="/records/01/filter">家居物業</option>
+        <option {{#categoryImg id '02'}} selected {{/categoryImg}} value="/records/02/filter">交通出行</option>
+        <option {{#categoryImg id '03'}} selected {{/categoryImg}} value="/records/03/filter">休閒娛樂</option>
+        <option {{#categoryImg id '04'}} selected {{/categoryImg}} value="/records/04/filter">餐飲食品</option>
+        <option {{#categoryImg id '05'}} selected {{/categoryImg}} value="/records/05/filter">其他</option>
+      </select>
     </div>
   </div>
 
-  <div class="row">
-    <h4>總金額：</h3>
-      <p>{{ totalAmount }}</p>
+  <div class="row" id="totalAmount">
+    <h4 class="totalAmount">總金額：</h3>
+      <p class="totalAmount">{{ totalAmount }}</p>
   </div>
 
-  {{#each records}}
-  <li class="list-group-item">
-    <div class="row ">
-      {{#categoryImg this.category '01'}} <i class="fas fa-home fa-3x"></i> {{/categoryImg}}
-      {{#categoryImg this.category '02'}} <i class="fas fa-shuttle-van fa-3x"></i> {{/categoryImg}}
-      {{#categoryImg this.category '03'}} <i class="fas fa-grin-beam fa-3x"></i> {{/categoryImg}}
-      {{#categoryImg this.category '04'}} <i class="fas fa-utensils fa-3x"></i> {{/categoryImg}}
-      {{#categoryImg this.category '05'}} <i class="fas fa-pen fa-3x"></i> {{/categoryImg}}
-      <div class="mx-2 mb-0" style="display: inline; vertical-align: middle;">
-        {{this.name}}
-        <p>{{this.date}}</p>
-      </div>
-      <div class="ml-5">
-        <p>{{this.amount}}</p>
-      </div>
+  <div class="row" id="recordList">
+    <div class="recordList">
+      {{#each records}}
+      <li class="list-group-item">
+        <div class="row ">
+          {{#categoryImg this.category '01'}} <i class="fas fa-home fa-3x"></i> {{/categoryImg}}
+          {{#categoryImg this.category '02'}} <i class="fas fa-shuttle-van fa-3x"></i> {{/categoryImg}}
+          {{#categoryImg this.category '03'}} <i class="fas fa-grin-beam fa-3x"></i> {{/categoryImg}}
+          {{#categoryImg this.category '04'}} <i class="fas fa-utensils fa-3x"></i> {{/categoryImg}}
+          {{#categoryImg this.category '05'}} <i class="fas fa-pen fa-3x"></i> {{/categoryImg}}
+          <div class="mx-2 mb-0 recordName" style="display: inline; vertical-align: middle;">
+            {{this.name}}
+            <p>{{this.date}}</p>
+          </div>
+          <div class="ml-1 amount">
+            <p>{{this.amount}}</p>
+          </div>
 
+          <div class="col-auto">
+            <a class="btn btn-success" href="./records/{{ this._id }}/edit">edit</a>
+            <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+              <button class="btn btn-danger" type="submit">delete</button>
+            </form>
+          </div>
 
-
-      <div class="col-auto">
-        <a class="btn btn-success" href="./records/{{ this._id }}/edit">edit</a>
-        <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
-          <button class="btn btn-danger" type="submit">delete</button>
-        </form>
-      </div>
-
+        </div>
+      </li>
+      {{/each}}
     </div>
-  </li>
-  {{/each}}
-  <a class="btn btn-outline-warning mt-5" href="/records/new">新增支出</a>
+  </div>
+
+  <div class="expense">
+    <a class="btn btn-outline-warning m-5 expenseBtn" href="/records/new">新增支出</a>
+  </div>
+  
 </div>

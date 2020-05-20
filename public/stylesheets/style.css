@@ -1,0 +1,35 @@
+#totalAmount {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+
+.totalAmount {
+  font-size: 50px;
+}
+
+#recordList {
+  justify-content: center;
+}
+
+.fas {
+  width: 70px;
+}
+.amount {
+  width: 150px;
+}
+
+.recordName {
+  width: 150px;
+}
+
+.expense {
+  display: flex;
+  justify-content: center;
+}
+
+.expenseBtn {
+  min-width: 570px;
+}
+
