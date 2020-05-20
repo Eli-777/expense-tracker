@@ -1,3 +1,49 @@
-{{#each records}}
-  {{this.name}}
-{{/each}}
+<div class="container mt-5">
+  <div class="row">
+    <div class="form-group col-4 m-auto">
+      <select class="form-control">
+        <option value="" disabled selected>類別</option>
+        <option>家居物業</option>
+        <option>交通出行</option>
+        <option>休閒娛樂</option>
+        <option>餐飲食品</option>
+        <option>其他</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <h4>總金額：</h3>
+      <p>{{ total}}</p>
+  </div>
+
+  {{#each records}}
+  <li class="list-group-item">
+    <div class="row ">
+      {{#categoryImg this.category '01'}} <i class="fas fa-home fa-3x"></i> {{/categoryImg}}
+      {{#categoryImg this.category '02'}} <i class="fas fa-shuttle-van fa-3x"></i> {{/categoryImg}}
+      {{#categoryImg this.category '03'}} <i class="fas fa-grin-beam fa-3x"></i> {{/categoryImg}}
+      {{#categoryImg this.category '04'}} <i class="fas fa-utensils fa-3x"></i> {{/categoryImg}}
+      {{#categoryImg this.category '05'}} <i class="fas fa-pen fa-3x"></i> {{/categoryImg}}
+      <div class="mx-2 mb-0" style="display: inline; vertical-align: middle;">
+        {{this.name}}
+        <p>{{this.date}}</p>
+      </div>
+      <div class="ml-5">
+        <p>{{this.amount}}</p>
+      </div>
+
+
+
+      <div class="col-auto">
+        <a class="btn btn-success" href="./todos/{{ this._id }}/edit">edit</a>
+        <form action="./todos/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+          <button class="btn btn-danger" type="submit">delete</button>
+        </form>
+      </div>
+
+    </div>
+  </li>
+  {{/each}}
+  <a class="btn btn-outline-warning mt-5" href="/">新增支出</a>
+</div>

@@ -5,17 +5,17 @@ const recordSchema = new Schema({
     type: String,
     default: true
   },
-  // category: {
-  //   type: String,
-  //   default: true
-  // },
-  // date: {
-  //   type: Date,
-  //   default: true
-  // },
-  // amount: {
-  //   type: Number,
-  //   default: true
-  // }
+  category: {
+    type: String,
+    default: true
+  },
+  date: {
+    type: String,
+    default: true
+  },
+  amount: {
+    type: Number,
+    default: true
+  }
 })
 module.exports = mongoose.model('record', recordSchema)

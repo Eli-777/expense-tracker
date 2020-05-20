@@ -5,18 +5,10 @@ const categorySchema = new Schema({
     type: String,
     default: true
   },
-  // category: {
-  //   type: String,
-  //   default: true
-  // },
-  // date: {
-  //   type: Date,
-  //   default: true
-  // },
-  // amount: {
-  //   type: Number,
-  //   default: true
-  // }
+  id: {
+    type: String,
+    default:true
+  }
 })
 module.exports = mongoose.model('category', categorySchema)
 
