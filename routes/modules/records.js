@@ -38,6 +38,14 @@ router.put('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
+//接住修改頁面的表單，按表單回傳的資料把資料庫的同樣的資料刪除 = delete 功能
+router.delete('/:id', (req, res) => {
+  const id = req.params.id
+  return Record.findById(id) 
+    .then(record => record.remove()) 
+    .then(() => res.redirect('/')) 
+    .catch(error => console.log(error))
+})
 
 
 module.exports = router
