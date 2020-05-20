@@ -14,12 +14,27 @@ router.post('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
-//新增修改頁面
+//新增edit頁面
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id
   return Record.findById(id) 
     .lean() 
     .then((record) => res.render('edit', { record })) 
+    .catch(error => console.log(error))
+})
+//接住修改頁面的表單，把資料庫的資料改成表單資料 = update 功能
+router.put('/:id', (req, res) => {
+  const id = req.params.id
+  const { name, date , category , amount } = req.body //解構賦值
+  return Record.findById(id)
+    .then(record => {
+      record.name = name  
+      record.date = date
+      record.category = category
+      record.amount = amount
+      return record.save() 
+    })
+    .then(() => res.redirect(`/`)) 
     .catch(error => console.log(error))
 })
 
