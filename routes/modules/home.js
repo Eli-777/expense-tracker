@@ -12,9 +12,9 @@ router.get('/', (req, res) => {
       Record.aggregate([
         { $group: { _id: null, amount: { $sum: "$amount" } } }
       ])
-      .then(amount => total = amount[0].amount)
+      .then(amount => totalAmount = amount[0].amount)
     )
-    .then(records => res.render('index', { records, total }))
+    .then(records => res.render('index', { records, totalAmount }))
     .catch(error => console.log(error))
 })
 
