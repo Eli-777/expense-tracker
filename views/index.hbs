@@ -1,14 +1,16 @@
 <div class="container mt-5">
   <div class="row">
     <div class="form-group col-4 m-auto">
-      <select class="form-control">
-        <option value="" disabled selected>類別</option>
-        <option>家居物業</option>
-        <option>交通出行</option>
-        <option>休閒娛樂</option>
-        <option>餐飲食品</option>
-        <option>其他</option>
-      </select>
+      <form action="/filter" method="post">
+        <select class="form-control" onchange="location = this.value;">
+          <option value="/"selected>類別</option>
+          <option {{#categoryImg id '01'}} selected {{/categoryImg}} value="/records/01/filter">家居物業</option>
+          <option {{#categoryImg id '02'}} selected {{/categoryImg}} value="/records/02/filter">交通出行</option>
+          <option {{#categoryImg id '03'}} selected {{/categoryImg}} value="/records/03/filter">休閒娛樂</option>
+          <option {{#categoryImg id '04'}} selected {{/categoryImg}} value="/records/04/filter">餐飲食品</option>
+          <option {{#categoryImg id '05'}} selected {{/categoryImg}} value="/records/05/filter">其他</option>
+        </select>
+      </form>
     </div>
   </div>
 

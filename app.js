@@ -10,7 +10,7 @@ require('./config/mongoose')
 const app = express()
 const PORT = process.env.PORT || 3000
 
-app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs'}))
+app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -18,8 +18,8 @@ app.use(methodOverride('_method'))
 app.use(routes)
 
 //依類別代號選擇圖示
-Handlebars.registerHelper('categoryImg', function (img, number, options) {
-  if (img === number  ){
+Handlebars.registerHelper('categoryImg', function (categoryNumber, styleNumber, options) {
+  if (categoryNumber === styleNumber) {
     return options.fn(this)
   } else {
     return options.inverse(this)
