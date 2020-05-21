@@ -1,6 +1,6 @@
 
 # restaurant list
-用Node.js、Express、handlebars練習的作品，內容主要為餐廳清單及其詳細資訊。
+用Node.js、Express、handlebars練習的作品，內容主要為支出紀錄。
 
 ## 安裝方法
 下載專案
