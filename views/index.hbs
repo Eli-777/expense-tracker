@@ -18,38 +18,41 @@
   </div>
 
   <div class="row" id="recordList">
-    <div class="recordList">
+    <div class="recordList col-6">
       {{#each records}}
-      <li class="list-group-item">
-        <div class="row ">
-          {{#categoryImg this.category '01'}} <i class="fas fa-home fa-3x"></i> {{/categoryImg}}
-          {{#categoryImg this.category '02'}} <i class="fas fa-shuttle-van fa-3x"></i> {{/categoryImg}}
-          {{#categoryImg this.category '03'}} <i class="fas fa-grin-beam fa-3x"></i> {{/categoryImg}}
-          {{#categoryImg this.category '04'}} <i class="fas fa-utensils fa-3x"></i> {{/categoryImg}}
-          {{#categoryImg this.category '05'}} <i class="fas fa-pen fa-3x"></i> {{/categoryImg}}
-          <div class="mx-2 mb-0 recordName" style="display: inline; vertical-align: middle;">
-            {{this.name}}
-            <p>{{this.date}}</p>
+      <div class="list-group">
+        <div class="list-group-item col-12 col-md-10">
+          <div class="row ">
+            {{#categoryImg this.category '01'}} <i class="fas fa-home fa-3x"></i> {{/categoryImg}}
+            {{#categoryImg this.category '02'}} <i class="fas fa-shuttle-van fa-3x"></i> {{/categoryImg}}
+            {{#categoryImg this.category '03'}} <i class="fas fa-grin-beam fa-3x"></i> {{/categoryImg}}
+            {{#categoryImg this.category '04'}} <i class="fas fa-utensils fa-3x"></i> {{/categoryImg}}
+            {{#categoryImg this.category '05'}} <i class="fas fa-pen fa-3x"></i> {{/categoryImg}}
+            <div class="mx-2 mb-0 recordName" style="display: inline; vertical-align: middle;">
+              {{this.name}}
+              <p>{{this.date}}</p>
+            </div>
+            <div class="ml-1 amount">
+              <p>{{this.amount}}</p>
+            </div>
           </div>
-          <div class="ml-1 amount">
-            <p>{{this.amount}}</p>
-          </div>
-
-          <div class="col-auto">
-            <a class="btn btn-success" href="./records/{{ this._id }}/edit">edit</a>
-            <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
-              <button class="btn btn-danger" type="submit">delete</button>
-            </form>
-          </div>
-
         </div>
-      </li>
+
+        <div class="col-auto btn-section">
+          <a class="btn btn-success  mr-2" href="./records/{{ this._id }}/edit">edit</a>
+          <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;"
+            onsubmit="return confirm('確定要刪除嗎？')">
+            <button class="btn btn-danger" type="submit">delete</button>
+          </form>
+        </div>
+      </div>
+
       {{/each}}
     </div>
   </div>
 
   <div class="expense">
-    <a class="btn btn-outline-warning m-5 expenseBtn" href="/records/new">新增支出</a>
+    <a class="btn btn-outline-warning m-5 expenseBtn col-6" href="/records/new">新增支出</a>
   </div>
-  
+
 </div>

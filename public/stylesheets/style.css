@@ -13,15 +13,25 @@
   justify-content: center;
 }
 
+.list-group {
+  display: flex;
+  flex-direction: row;
+}
+
+
 .fas {
   width: 70px;
 }
-.amount {
-  width: 150px;
-}
+
 
 .recordName {
   width: 150px;
+}
+
+
+.btn-section {
+  display: flex;
+  align-items: center;
 }
 
 .expense {
@@ -29,7 +39,4 @@
   justify-content: center;
 }
 
-.expenseBtn {
-  min-width: 570px;
-}
 
